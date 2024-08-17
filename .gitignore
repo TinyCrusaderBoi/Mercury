@@ -43,3 +43,8 @@
 /var/package/*
 !/var/package/*.xml
 
+*.env
+csecret.js
+tokens.json
+accounts.txt
+
