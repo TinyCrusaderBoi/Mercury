@@ -47,4 +47,6 @@
 csecret.js
 tokens.json
 accounts.txt
+contacts.csv
+*.log
 
