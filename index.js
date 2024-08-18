@@ -18,7 +18,7 @@ const PORT = 5900;
 
 const CREDENTIALS_PATH = path.join(__dirname, 'csecret.json');
 const CSV_FILE_PATH = path.join(__dirname, 'contacts.csv');
-const TOKEN_DIR = path.join(__dirname, 'tokens'); //Where to store user tokens
+const TOKEN_DIR = path.join(__dirname, 'tokens'); // Where to store user tokens
 
 const SCOPES = [
   'https://www.googleapis.com/auth/contacts',
@@ -151,6 +151,13 @@ async function processAllAccounts() {
       
       // Wait for user authorization
       await new Promise(resolve => setTimeout(resolve, 60000)); // 1 minute pause
+
+      // After waiting, prompt the user for the next action
+      const userResponse = await promptUserForNextAccount();
+      if (userResponse.toLowerCase() === 'n') {
+        log('Stopping further authorizations and contact syncing.');
+        break;
+      }
     }
   }
 }
