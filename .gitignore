@@ -25,3 +25,6 @@ contacts.csv
 # Ignore files and directories with 'token' or 'tokens' in the name
 *token*
 *tokens*
+csecret.json
+/token
+/tokens
